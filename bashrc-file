@@ -1,0 +1,10 @@
+source /u/74/padarus1/unix/.alias.sh # Custom Alisases Sujith
+source /teamwork/t40511_asr/etc/aalto/profile  #Setting the group profile to use, symbols, packages
+module load anaconda3/4.0.0
+source activate tf3_env #Activating the tf3 conda env by default
+
+cd /l/padarus1/projects
+
+function cd {
+	builtin cd "$@" && ls -F
+}

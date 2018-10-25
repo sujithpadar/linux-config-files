@@ -1,0 +1,72 @@
+
+set nocompatible              " required
+filetype off                  " required
+
+" ***VUNDLE CONFIGURATION***
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'wilywampa/vim-ipython'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jpalardy/vim-slime'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'davidhalter/jedi-vim'
+" Plugin 'Valloric/YouCompleteMe'
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+" ...
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"
+" ***PYTHON CONFIG ***
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+"Enabling folding with space bar
+"nnoremap <space> za
+let g:SimpylFold_docstring_preview=1
+
+set encoding=utf-8
+
+" Python Auto complete
+"You Complete ME let g:ycm_autoclose_preview_window_after_completion=1
+"                map <space>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let g:jedi#use_splits_not_buffers = "left"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"*** tmux, vimslime configurations.***
+
+"let g:slime_target = "tmux"
+"let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
+"let g:slime_python_ipython = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Adding split screen navigation keymapping.
+
+nnoremap <C-Down> <C-W><C-J>
+nnoremap <C-Up>  <C-W><C-K>
+nnoremap <C-Left> <C-W><C-H>
+nnoremap <C-Right> <C-W><C-L>
+
+"highlight search and line numbers
+set hlsearch
+set number
+
+"Copy and paste
+nnoremap <C-v> "+P=']
+inoremap <C-v> <C-o>"+P<C-o>=']
